@@ -1,4 +1,4 @@
-module simplebank
+module github.com/Paulooo0/gobank
 
 go 1.20
 

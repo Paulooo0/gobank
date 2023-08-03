@@ -8,8 +8,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"simplebank/util"
-
+	"github.com/Paulooo0/gobank/util"
 )
 
 func createRandomAccount(t *testing.T) Account {
@@ -87,7 +86,7 @@ func TestListAccounts(t *testing.T) {
 	}
 
 	arg := ListAccountsParams{
-		Limit: 5,
+		Limit:  5,
 		Offset: 5,
 	}
 
