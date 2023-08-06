@@ -4,7 +4,6 @@ import (
 	"context"
 	"database/sql"
 	"fmt"
-
 )
 
 // Store provides all functions to execute db queries and transactions
@@ -97,7 +96,7 @@ func (store *Store) TransferTx(ctx context.Context, arg TransferTxParams) (Trans
 		if err != nil {
 			return err
 		}
-			
+
 		return nil
 	})
 
