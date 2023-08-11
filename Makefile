@@ -14,10 +14,10 @@ migratedown:
 	migrate -path db/migration -database "postgresql://root:102030405060@localhost:5432/simple_bank?sslmode=disable" -verbose down
 
 sqlc_init:
-	docker run --rm -v "%cd%:/src" -w /src kjconroy/sqlc init
+	sqlc init
 
-sqlc_generate:
-	docker run --rm -v "%cd%:/src" -w /src kjconroy/sqlc generate
+sqlc:
+	sqlc generate
 
 test:
 	go test -v -cover ./...
@@ -25,4 +25,7 @@ test:
 server:
 	go run main.go
 
-.PHONY: postgres createdb dropdb migrateup migratedown sqlc_init sqlc_generate test server
+mock:
+	mockgen -package mockdb -destination db/mock/store.go github.com/Paulooo0/gobank/db/sqlc Store
+
+.PHONY: postgres createdb dropdb migrateup migratedown sqlc_init sqlc test server mock
